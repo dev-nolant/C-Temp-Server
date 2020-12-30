@@ -1,0 +1,52 @@
+<html>
+<style>
+    *, *:after, *:before {
+        box-sizing: border-box;
+    }
+
+    body {
+    background-image: url('{{ url_for('static', filename='BG.gif') }}');
+        background-size: cover;
+        position: center;
+        overflow: hidden; /* Hide scrollbars */
+        font-family: sans-serif;
+        color: #ff0000;
+        font-size: 2em;
+       }
+
+    div {
+        text-align: center;
+        width: 100%;
+        vertical-align: top;
+        height: 99%;
+        display: table-cell;
+    }
+    .iframe{
+        width: 100%;
+    }
+    div,
+    body,
+    html {
+        height: 100%;
+        width: 100%;
+    }
+    body{
+        display: table;
+    }
+    </style>
+<body>
+<div id="list">
+    <p>
+        <iframe id="myFrame" class="container" frameborder="1" src="/static/temp.txt"></iframe>
+    </p>
+</div>
+    </body>
+<script>
+var frame = document.getElementById('myFrame');
+    frame.onload = function () {
+        var body = frame.contentWindow.document.querySelector('body');
+        body.style.fontSize = '20px';
+        body.style.lineHeight = '20px';
+    };
+    </script>
+</html>
